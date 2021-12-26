@@ -17,11 +17,15 @@ export const CounterAppCustomHook = () => {
     return (
         <>
             <h1>CounterApp with custom Hook: {state} </h1>
+            {/* imprimiremos en pantalla el valor del state */}
             <hr></hr>
 
             <button onClick={increment} className='btn btn-success' >+1</button>
-            <button onClick={reset} className='btn btn-success' >Resest</button>
+            {/* al hacer click en el boton se llamará la funcion de increment */}
+            <button onClick={reset} className='btn btn-success' >Reset</button>
+            {/* al hacer click en el boton se llamará la funcion de reset */}
             <button onClick={decrement} className='btn btn-success' >-1</button>
+            {/* al hacer click en el boton se llamará la funcion de decrement */}
         </>
     )
 }
