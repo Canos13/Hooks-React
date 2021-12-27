@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export const useFetch = ( url ) => {
      
@@ -6,9 +6,15 @@ export const useFetch = ( url ) => {
         data: null,
         loading: true,
         error: null
-    })
+    });
 
     useEffect(()=>{
+
+        setstate({
+            loading: true,
+            error: null,
+            data: null
+        })
 
         fetch(url).then( resp => resp.json() )
                   .then( data => {
@@ -18,9 +24,7 @@ export const useFetch = ( url ) => {
                           data
                       })
                   })
-
     }, [url]);
 
     return state;
-
 }
