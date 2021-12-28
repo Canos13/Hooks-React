@@ -17,10 +17,12 @@ export const SimpleForm = () => {
     useEffect(()=>{
         /* console.log('nombre cambió'); */
     }, [nombre])
+    /* disparamos el hook de useEffect cuando cambie el campo del nombre */
 
     useEffect(()=>{
         /* console.log('correo cambió'); */
     }, [correo])
+    /* disparamos el hook de useEffect cuando cambie el campo del correo */
 
 
     const handleInputChange = ({target}) =>{
@@ -33,7 +35,7 @@ export const SimpleForm = () => {
     return (
         <>
            <h1>useEffect</h1>
-           <div className='form-group mb-3' >
+           <div className='form-group mb-3'>
                <input 
                     className='form-control'
                     type='text'
@@ -46,7 +48,7 @@ export const SimpleForm = () => {
                 />
             </div>
 
-            <div className='form-group' >
+            <div className='form-group'>
                 <input 
                     className='form-control'
                     type='text'
@@ -59,6 +61,8 @@ export const SimpleForm = () => {
             </div>
 
             {( nombre === 'sergio' ) && <Message nombre={nombre} />}
+            {/* mostraremos el componente de <Message /> solo si
+            el nombre es igual a sergio*/}
 
         </>
     )   
