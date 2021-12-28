@@ -7,9 +7,7 @@ import '../02-useEffect/Form.css'
 export const MultipleCustomHook = () => {
 
     const {state, increment, decrement, reset} = useCounter(1);
-    if(state===0){
-        reset();
-    }
+    if(state === 0){ reset(); }
     const url = `https://www.breakingbadapi.com/api/quotes/${state}`;
     const {loading, data} = useFetch(url);
     const { author, quote } = !!data && data[0];
@@ -21,12 +19,10 @@ export const MultipleCustomHook = () => {
             {
                 loading 
                 ? 
-                   (
-                        <Loading />
-                   )
+                    ( <Loading /> )
                 :
                     (
-                        <blockquote className='blockquote text-center'>
+                        <blockquote className='blockquote text-center p-3'>
                             <p className='mb-3'>{ author }</p>
                             <footer className='blockquote-footer'>{ quote }</footer>
                         </blockquote>
