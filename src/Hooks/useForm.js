@@ -9,6 +9,8 @@ export const useForm = (initialState = {}) => {
     recibiremos, y si no recibimos nada el initialState 
     será un objeto vacio*/
 
+    const reset = () => setValues(initialState);
+
     const handleInputChange = ({target}) =>{
         setValues({
             ...values,
@@ -18,6 +20,6 @@ export const useForm = (initialState = {}) => {
     /* Creamos una funcion llamada handleInpuChange donde
     cambiaremos el estado de values con el setValues */
 
-    return [values, handleInputChange];
+    return [values, handleInputChange, reset];
     /* retornaremos el values y la funcion handleInputChange */
 }
