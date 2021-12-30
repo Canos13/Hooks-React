@@ -25,15 +25,31 @@ export const TareasApp = () => {
         localStorage.setItem('tareas', JSON.stringify(tareas));
     },[tareas])
 
+    const handleDelete = (TareaId) =>{
+        
+        const action = {
+            type: 'delete',
+            payload: TareaId
+        }
 
-    const agregarTarea = (e)=>{
+        dispatch(action);
+    }
+
+    const handleToggle = (TareaId)=>{
+        dispatch({
+            type: 'toogle',
+            payload: TareaId
+        });
+    };
+
+    const addTaks = (e)=>{
         e.preventDefault();
 
         if( descripcion.trim().length <= 1 ){
             return;
         }
 
-        const nuevaTarea = {
+        const newTask = {
             id: new Date().getTime(),
             desc: descripcion,
             done:false
@@ -41,7 +57,7 @@ export const TareasApp = () => {
 
         const action = {
             type: 'add',
-            payload: nuevaTarea
+            payload: newTask
         }
 
         dispatch(action);
@@ -59,26 +75,38 @@ export const TareasApp = () => {
 
                     <ol className='list-group list-group-flush' >
                         {
-                            tareas.map(({desc, id},i) => {
+                            tareas.map(({desc, id, done},i) => {
                                 return <li
                                             key={id}
-                                            className='list-group-item d-flex align-items-center justify-content-between'
+                                            className='list-group-item d-flex flex-wrap align-items-center justify-content-between'
                                         >
-                                          <p className='text-center m-0'>{i+1}. {desc}</p>
-                                          <button
-                                            className='btn btn-danger'
-                                          ><i className="far fa-trash-alt"></i> Borrar</button> 
+                                            <p 
+                                                className={`col-6 hand flex-wrap m-0 ${done && 'complete'}`} 
+                                                onClick={()=> handleToggle(id)}
+                                            >
+                                                    {i+1}. {desc}
+                                            </p>
+                                            <button
+                                                className={`btn btn-${done?'secondary':'primary'}`}
+                                                onClick={ ()=> handleToggle(id)}
+                                            ><i className={`${done?'fas fa-window-close':'far fa-check-square'}`}></i> {`${done?'Incompleto':'Hecho'}`}</button>
+                                            
+                                            <button
+                                                className='btn btn-danger'
+                                                onClick={ () => handleDelete(id) }
+                                            ><i className="far fa-trash-alt"></i> Borrar</button> 
                                         </li>
                             })
                         }
                     </ol>
+                    
                 </div>
 
                 <div  className='col-5'>
                     <h4 className='text-center' >Agregar Tarea</h4>
                     <hr />
 
-                    <form onSubmit={agregarTarea} >
+                    <form onSubmit={addTaks} >
 
                         <input 
                             type='text'
