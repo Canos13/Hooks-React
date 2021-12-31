@@ -1,6 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
 import { tareasReducer } from './tareasReducer';
+import { ListaTareas } from './ListaTareas';
 import { useForm } from '../../Hooks/useForm';
+
 import './style.css';
 
 /* const initialState = [{
@@ -26,7 +28,6 @@ export const TareasApp = () => {
     },[tareas])
 
     const handleDelete = (TareaId) =>{
-        
         const action = {
             type: 'delete',
             payload: TareaId
@@ -73,7 +74,13 @@ export const TareasApp = () => {
 
                 <div className='col-7'>
 
-                    <ol className='list-group list-group-flush' >
+                    <ListaTareas 
+                        tareas={tareas} 
+                        handleDelete={handleDelete}
+                        handleToggle={handleToggle}
+                    />
+
+                    {/* <ol className='list-group list-group-flush' >
                         {
                             tareas.map(({desc, id, done},i) => {
                                 return <li
@@ -98,7 +105,7 @@ export const TareasApp = () => {
                                         </li>
                             })
                         }
-                    </ol>
+                    </ol> */}
                     
                 </div>
 
