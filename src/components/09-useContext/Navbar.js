@@ -1,24 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
-    <nav>
-        <ul>
-            <li> 
-                <Link to="/" >Home</Link>
-            </li> 
-        </ul>
-        <ul>
-            <li> 
-                <Link to="/about" >About</Link>
-            </li> 
-        </ul>
-        <ul>
-            <li> 
-                <Link to="/login" >Login</Link>
-            </li> 
-        </ul>
+      
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div className="container-fluid">
+            <Link className="navbar-brand" to="/">useContext</Link>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+                {/* <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link" to="/about">About</Link>
+                <Link className="nav-link" to="/login">Login</Link> */}
+
+                <NavLink exact="true" activeclassname="active" className="nav-link" aria-current="page" to="/">Home</NavLink>
+                <NavLink exact="true" activeclassname="active" className="nav-link" to="/about">About</NavLink>
+                <NavLink exact="true" activeclassname="active" className="nav-link" to="/login">Login</NavLink>
+            </div>
+            </div>
+        </div>
     </nav>
   )
 }
