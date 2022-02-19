@@ -18,17 +18,17 @@ export const AppRouter = () => {
             <Navbar />
 
             <Routes>
-                <Route index exact path='/' element={<HomeScreen /> } /> 
-                <Route exact path='/about' element={<AboutScreen /> } />
-                <Route exact path='/login' element={<LoginScreen /> } />
+                <Route exact="true" index path='/' element={<HomeScreen /> } /> 
+                <Route exact="true" path='/about' element={<AboutScreen /> } />
+                <Route exact="true" path='/login' element={<LoginScreen /> } />
                 {/* 
-                    Si no hace match renderiza el componete <NotFound /> 
-                    <Route path='*' element={<NotFound /> } /> 
-                */}
-
+                    Si no hace match renderiza el componete <NotFound />  */}
+                <Route path='*' element={<NotFound /> } /> 
+               
                 {/* Si no hace match se navega hacia "/" */}
-                <Route path='*' element={<Navigate replace to="/" /> } />
+                {/* <Route path='*' element={<Navigate replace to="/" /> } /> */}
             </Routes>
+            <hr />
         </div>
     </Router>
   )
