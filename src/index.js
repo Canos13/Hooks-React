@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TareasApp } from './components/07-useReducer/TareasApp';
+import { MainApp } from './components/09-useContext/MainApp';
 
-/* import { HooksApp } from './HooksApp' 
+/* import { TareasApp } from './components/07-useReducer/TareasApp'; 
+import { HooksApp } from './HooksApp' 
 import { Padre } from './components/06-tarea-memo/Padre';
 import { Memorize } from './components/05-Memos/Memorize';
 import { CallbackHook } from './components/05-Memos/CallbackHook';
@@ -14,6 +15,6 @@ import { CounterAppCustomHook } from './components/01-useSate/CounterAppCustomHo
 import { SimpleForm } from './components/02-useEffect/SimpleForm';*/
 
 ReactDOM.render(
-  <TareasApp />, document.getElementById('root')
+  <MainApp />, document.getElementById('root')
 );
 
