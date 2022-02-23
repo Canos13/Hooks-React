@@ -21,8 +21,7 @@ export const AppRouter = () => {
                 <Route exact="true" index path='/' element={<HomeScreen /> } /> 
                 <Route exact="true" path='/about' element={<AboutScreen /> } />
                 <Route exact="true" path='/login' element={<LoginScreen /> } />
-                {/* 
-                    Si no hace match renderiza el componete <NotFound />  */}
+                {/* Si no hace match renderiza el componete <NotFound />  */}
                 <Route path='*' element={<NotFound /> } /> 
                
                 {/* Si no hace match se navega hacia "/" */}
